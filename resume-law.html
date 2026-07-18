@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>个人简历 - 杨岚（法务/律师助理方向）</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    background: #e8e8e8;
+    display: flex;
+    justify-content: center;
+    padding: 2rem 1rem;
+    color: #222;
+    line-height: 1.6;
+  }
+
+  .resume {
+    width: 100%;
+    max-width: 750px;
+    background: #fff;
+    padding: 2.8rem 2.5rem 2.5rem;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.12);
+  }
+
+  /* 头部 */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 3px solid #1E3A5F;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .header-left h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1E3A5F;
+    letter-spacing: 4px;
+    margin-bottom: 0.3rem;
+  }
+
+  .header-left .job-target {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 0.8rem;
+  }
+
+  .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem 1.8rem;
+    font-size: 0.8rem;
+    color: #555;
+  }
+
+  .contact-row span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+  }
+
+  .photo-placeholder {
+    width: 90px;
+    height: 120px;
+    border: 1.5px dashed #bbb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #bbb;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+    margin-left: 2rem;
+  }
+
+  /* 章节标题 */
+  .section {
+    margin-bottom: 1.2rem;
+  }
+
+  .section-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1E3A5F;
+    border-left: 4px solid #F4A261;
+    padding-left: 0.6rem;
+    margin-bottom: 0.7rem;
+    letter-spacing: 1px;
+  }
+
+  /* 条目 */
+  .entry {
+    margin-bottom: 0.7rem;
+  }
+
+  .entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+  }
+
+  .entry-title {
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .entry-sub {
+    font-size: 0.8rem;
+    color: #666;
+    font-weight: 500;
+  }
+
+  .entry-date {
+    font-size: 0.78rem;
+    color: #999;
+  }
+
+  .entry-detail {
+    margin-top: 0.25rem;
+  }
+
+  .entry-detail li {
+    font-size: 0.82rem;
+    color: #444;
+    margin-bottom: 0.15rem;
+    list-style: disc inside;
+    line-height: 1.55;
+  }
+
+  .highlight-num {
+    color: #1E3A5F;
+    font-weight: 700;
+  }
+
+  /* 技能标签 */
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .skill-tag {
+    font-size: 0.78rem;
+    background: #f0f4f8;
+    color: #1E3A5F;
+    padding: 0.15rem 0.6rem;
+    border-radius: 3px;
+    font-weight: 500;
+  }
+
+  /* 打印样式 */
+  @media print {
+    body { background: #fff; padding: 0; }
+    .resume { box-shadow: none; max-width: none; padding: 0.8cm 1cm; }
+    @page { size: A4; margin: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="resume">
+
+  <!-- 头部 -->
+  <div class="header">
+    <div class="header-left">
+      <h1>杨 岚</h1>
+      <div class="job-target">求职意向：法务助理 / 实习律师助理</div>
+      <div class="contact-row">
+        <span>📧 2758473185@qq.com</span>
+        <span>📱 18105248398</span>
+        <span>🎂 2006 年 / 女</span>
+        <span>📍 江苏南京</span>
+      </div>
+    </div>
+    <div class="photo-placeholder">证件照</div>
+  </div>
+
+  <!-- 教育背景 -->
+  <div class="section">
+    <div class="section-title">教育背景</div>
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">南京航空航天大学 · 法学专业</span>
+        <span class="entry-date">2025.09 — 2029.06（在读）</span>
+      </div>
+      <ul class="entry-detail">
+        <li>大二在读，GPA <span class="highlight-num">4.3 / 4.5</span>（专业前 5%），大一获<span class="highlight-num">学业奖学金一等奖</span></li>
+        <li>核心课程：民法、刑法、宪法、法理学、法律英语、民事诉讼法</li>
+        <li>英语 CET-4：<span class="highlight-num">639</span> 分</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 实习经历 -->
+  <div class="section">
+    <div class="section-title">实习经历</div>
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">江苏省宿迁市宿城区人民法院</span>
+        <span class="entry-date">2026.07 — 2026.08</span>
+      </div>
+      <div class="entry-sub">民事审判第二庭（民二庭）· 法官助理实习生</div>
+      <ul class="entry-detail">
+        <li>梳理案件卷宗材料，逐案联系原告核实诉讼意愿，同步记录沟通信息，累积覆盖<span class="highlight-num">200 余件</span>案件</li>
+        <li>将每起案件的沟通结果、原告意愿整理登记至统计表格，完成台账归档与数据化管理</li>
+        <li>协助法官起草、校对民事判决书，核对文书内容与卷宗事实、证据信息的一致性，完成文书基础撰写与格式调整</li>
+        <li>配合庭内完成案件材料整理、信息核对等辅助性事务，熟悉民事审判流程与司法文书规范</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 项目经历 -->
+  <div class="section">
+    <div class="section-title">项目与竞赛经历</div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">"旅伴+" 社交产品法律风控方案</span>
+        <span class="entry-date">2026.02 — 2026.04</span>
+      </div>
+      <ul class="entry-detail">
+        <li>独立完成产品商业模式中的法律风险评估，主导设计《用户服务协议》《安全须知》及"紧急联系人交换"核心流程</li>
+        <li>遵循《个人信息保护法》原则，对敏感信息的收集、使用、存储生命周期进行最小化、场景化合规设计</li>
+        <li>在用户体验关键节点嵌入平台告知义务，构建产品级风控体系</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">民航创新大赛 — 机场安检智能预核验方案</span>
+        <span class="entry-date">2026.01 — 2026.03</span>
+      </div>
+      <ul class="entry-detail">
+        <li>独立完成方案的合规性、可行性与风险分析，将法学合规思维融入五层技术架构</li>
+        <li>获<span class="highlight-num">民航创新实践挑战赛三等奖</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 技能 -->
+  <div class="section">
+    <div class="section-title">专业技能</div>
+    <div class="skill-tags">
+      <span class="skill-tag">法律文书写作</span>
+      <span class="skill-tag">卷宗整理与台账管理</span>
+      <span class="skill-tag">民事诉讼法</span>
+      <span class="skill-tag">个人信息保护法</span>
+      <span class="skill-tag">合同审核</span>
+      <span class="skill-tag">法律信息检索</span>
+      <span class="skill-tag">英语 CET-4 639</span>
+      <span class="skill-tag">Office 办公套件</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
