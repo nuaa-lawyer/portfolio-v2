@@ -1,0 +1,1659 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="杨岚的个人作品集 - 用法学思维做产品">
+    <meta name="keywords" content="产品经理,法学,法律科技,数据分析,产品设计,合规产品">
+    <title>用法学思维做产品 | 杨岚</title>
+    <style>
+        /* 重置和基础样式 */
+        * {
+            margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    :root {
+        --primary-color: #1E3A5F;
+        --secondary-color: #F4A261;
+        --accent-color: #2d5a8c;
+        --text-color: #333;
+        --light-bg: #f8f9fa;
+        --card-bg: white;
+        --border-radius: 12px;
+    }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background: var(--light-bg);
+        transition: background-color 0.3s ease;
+    }
+
+    /* 暗色模式 */
+    body.dark-mode {
+        --text-color: #f0f0f0;
+        --light-bg: #1a1a1a;
+        --card-bg: #2d2d2d;
+        background: var(--light-bg);
+        color: var(--text-color);
+    }
+
+    /* 导航栏 */
+    nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(30, 58, 95, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 1rem 2rem;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-logo {
+        color: white;
+        font-weight: 700;
+        font-size: 1.2rem;
+        text-decoration: none;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        padding: 0.5rem 0;
+        position: relative;
+    }
+
+    nav a:hover {
+        color: var(--secondary-color);
+    }
+
+    nav a.active {
+        color: var(--secondary-color);
+        font-weight: 600;
+    }
+
+    nav a.active::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--secondary-color);
+    }
+
+    .theme-toggle {
+        background: none;
+        border: 1px solid white;
+        color: white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+    }
+
+    .theme-toggle:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Hero区 */
+    .hero {
+        margin-top: 60px;
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+        color: white;
+        padding: 6rem 2rem;
+        text-align: center;
+        min-height: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        opacity: 0;
+        animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .hero .subtitle {
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+        opacity: 0.9;
+        font-weight: 300;
+        animation: fadeInUp 0.8s ease-out 0.2s forwards;
+        opacity: 0;
+    }
+
+    .hero .tagline {
+        font-size: 1rem;
+        color: var(--secondary-color);
+        font-weight: 600;
+        letter-spacing: 1px;
+        margin-bottom: 2.5rem;
+        animation: fadeInUp 0.8s ease-out 0.4s forwards;
+        opacity: 0;
+    }
+
+    .hero-actions {
+        display: flex;
+        gap: 1rem;
+        animation: fadeInUp 0.8s ease-out 0.6s forwards;
+        opacity: 0;
+    }
+
+    .btn-primary, .btn-secondary {
+        padding: 0.8rem 2rem;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: inline-block;
+    }
+
+    .btn-primary {
+        background: var(--secondary-color);
+        color: white;
+    }
+
+    .btn-primary:hover {
+        background: #e89450;
+        transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+        background: transparent;
+        border: 2px solid white;
+        color: white;
+    }
+
+    .btn-secondary:hover {
+        background: white;
+        color: var(--primary-color);
+        transform: translateY(-2px);
+    }
+
+    /* 关于我 */
+    .about {
+        max-width: 1000px;
+        margin: 4rem auto;
+        padding: 3rem 2rem;
+        background: var(--card-bg);
+        border-radius: var(--border-radius);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        animation: fadeInUp 0.6s ease-out;
+    }
+
+    .about h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        color: var(--primary-color);
+        border-bottom: 3px solid var(--secondary-color);
+        padding-bottom: 0.5rem;
+        display: inline-block;
+    }
+
+    .about p {
+        font-size: 1.05rem;
+        line-height: 1.8;
+        color: var(--text-color);
+        margin-bottom: 1rem;
+    }
+
+    .about .highlight {
+        color: var(--primary-color);
+        font-weight: 600;
+    }
+
+    /* 法院实习时间轴 */
+    .internship-block {
+        margin-top: 2.5rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .internship-block h3 {
+        font-size: 1.2rem;
+        color: var(--primary-color);
+        margin-bottom: 1.2rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .internship-timeline {
+        position: relative;
+        padding-left: 2rem;
+    }
+
+    .internship-timeline::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0.3rem;
+        bottom: 0;
+        width: 3px;
+        background: linear-gradient(to bottom, var(--secondary-color), rgba(244,162,97,0.2));
+        border-radius: 2px;
+    }
+
+    .internship-header {
+        margin-bottom: 1rem;
+    }
+
+    .internship-header .unit {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--primary-color);
+    }
+
+    .internship-header .dept {
+        font-size: 0.9rem;
+        color: var(--secondary-color);
+        font-weight: 600;
+        margin-left: 0.5rem;
+    }
+
+    .internship-header .duration {
+        font-size: 0.85rem;
+        color: var(--text-color);
+        opacity: 0.7;
+        margin-top: 0.2rem;
+    }
+
+    .internship-duties {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 1rem;
+    }
+
+    .internship-duties li {
+        position: relative;
+        padding-left: 1.2rem;
+        margin-bottom: 0.4rem;
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .internship-duties li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0.55rem;
+        width: 6px;
+        height: 6px;
+        background: var(--secondary-color);
+        border-radius: 50%;
+    }
+
+    .internship-outcome {
+        background: rgba(244,162,97,0.08);
+        padding: 0.8rem 1rem;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin-bottom: 0.8rem;
+        border-left: 3px solid var(--secondary-color);
+    }
+
+    .internship-insight {
+        font-size: 0.85rem;
+        color: var(--text-color);
+        opacity: 0.8;
+        font-style: italic;
+        line-height: 1.6;
+    }
+
+    .highlights-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .highlight-card {
+        background: linear-gradient(135deg, rgba(30, 58, 95, 0.05) 0%, rgba(244, 162, 97, 0.05) 100%);
+        padding: 1.5rem;
+        border-radius: 8px;
+        border-left: 4px solid var(--secondary-color);
+    }
+
+    .highlight-card h3 {
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+        display: flex;
+            align-items: center;
+        gap: 0.5rem;
+    }
+
+    /* 数据看板 */
+    .stats-section {
+        max-width: 1000px;
+        margin: 3rem auto;
+        padding: 0 2rem;
+    }
+
+    /* 思维框架 */
+    .framework-section {
+        max-width: 1000px;
+        margin: 4rem auto;
+        padding: 3rem 2rem;
+        background: var(--card-bg);
+        border-radius: var(--border-radius);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        text-align: center;
+    }
+
+    .framework-steps {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+        margin-top: 2.5rem;
+        align-items: start;
+    }
+
+    .framework-step {
+        padding: 1.5rem 1rem;
+        position: relative;
+    }
+
+    .framework-step::after {
+        content: '→';
+        position: absolute;
+        right: -0.5rem;
+        top: 2.5rem;
+        font-size: 1.8rem;
+        color: var(--secondary-color);
+        font-weight: 700;
+    }
+
+    .framework-step:last-child::after {
+        content: none;
+    }
+
+    .framework-step-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        display: block;
+    }
+
+    .framework-step h3 {
+        font-size: 1.1rem;
+        color: var(--primary-color);
+        margin-bottom: 0.6rem;
+        font-weight: 700;
+    }
+
+    .framework-step p {
+        font-size: 0.9rem;
+        color: var(--text-color);
+        opacity: 0.85;
+        line-height: 1.5;
+    }
+
+    .framework-step .evidence {
+        display: inline-block;
+        margin-top: 0.8rem;
+        font-size: 0.75rem;
+        color: var(--accent-color);
+        background: rgba(30,58,95,0.06);
+        padding: 0.2rem 0.6rem;
+        border-radius: 10px;
+    }
+
+    @media (max-width: 768px) {
+        .framework-steps {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .framework-step::after {
+            content: '↓';
+            right: 50%;
+            top: auto;
+            bottom: -1rem;
+            transform: translateX(50%);
+        }
+
+        .framework-step:last-child::after {
+            content: none;
+        }
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .stat-card {
+        background: var(--card-bg);
+        padding: 1.5rem;
+        border-radius: var(--border-radius);
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease;
+    }
+
+    .stat-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+        color: var(--secondary-color);
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+
+    /* 作品集 - 动态部分 */
+    .projects-section {
+        max-width: 1200px;
+        margin: 4rem auto;
+        padding: 0 2rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 3rem;
+        color: var(--primary-color);
+        text-align: center;
+        border-bottom: 3px solid var(--secondary-color);
+        padding-bottom: 0.5rem;
+        display: inline-block;
+        width: 100%;
+    }
+
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+    }
+
+    .project-card {
+        background: var(--card-bg);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        opacity: 0;
+        animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    .project-card:nth-child(1) { animation-delay: 0.1s; }
+    .project-card:nth-child(2) { animation-delay: 0.2s; }
+    .project-card:nth-child(3) { animation-delay: 0.3s; }
+    .project-card:nth-child(4) { animation-delay: 0.4s; }
+
+    .project-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .project-header {
+        width: 100%;
+        height: 200px;
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 700;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .project-main-icon {
+        font-size: 4rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .project-header h3 {
+        font-size: 1.5rem;
+        text-align: center;
+        padding: 0 1rem;
+    }
+
+    .project-subtitle {
+        color: var(--secondary-color) !important;
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-align: center;
+    }
+
+    .project-content {
+        padding: 1.5rem;
+    }
+
+    .project-description {
+        font-size: 0.95rem;
+        color: var(--text-color);
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+    }
+
+    .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .tag {
+        display: inline-block;
+        background: rgba(232, 240, 247, 0.5);
+        color: var(--primary-color);
+        padding: 0.4rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+
+    .tag.product-design { background: rgba(66, 153, 225, 0.2); color: #4299e1; }
+    .tag.data-analysis { background: rgba(72, 187, 120, 0.2); color: #48bb78; }
+    .tag.law-risk-control { background: rgba(237, 100, 166, 0.2); color: #ed64a6; }
+    .tag.vibe-coding { background: rgba(246, 173, 85, 0.2); color: #f6ad55; }
+    .tag.prototype { background: rgba(159, 122, 234, 0.2); color: #9f7aea; }
+    .tag.prd { background: rgba(49, 151, 149, 0.2); color: #319795; }
+    .tag.canva { background: rgba(245, 101, 101, 0.2); color: #f56565; }
+
+    /* 能力维度标签 */
+    .ability-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .ability-tag {
+        display: inline-block;
+        font-size: 0.7rem;
+        font-weight: 700;
+        padding: 0.25rem 0.6rem;
+        border-radius: 4px;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+    }
+
+    .ability-tag.dim-product { border: 1.5px solid #4299e1; color: #4299e1; }
+    .ability-tag.dim-data { border: 1.5px solid #48bb78; color: #48bb78; }
+    .ability-tag.dim-law { border: 1.5px solid #ed64a6; color: #ed64a6; }
+    .ability-tag.dim-engineering { border: 1.5px solid #f6ad55; color: #f6ad55; }
+
+    /* 特色项目大卡片 */
+    .project-card.featured {
+        grid-column: 1 / -1;
+    }
+
+    .project-card.featured .project-header {
+        height: 150px;
+        flex-direction: row;
+        gap: 1.5rem;
+        padding: 0 2rem;
+    }
+
+    .project-card.featured .project-main-icon {
+        font-size: 3.5rem;
+        margin-bottom: 0;
+    }
+
+    .project-card.featured .project-header h3 {
+        font-size: 1.8rem;
+    }
+
+    .project-card.featured .project-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+
+    .project-card.featured .project-description {
+        font-size: 1rem;
+        grid-column: 1 / -1;
+    }
+
+    @media (max-width: 768px) {
+        .project-card.featured .project-header {
+            flex-direction: column;
+            height: auto;
+            padding: 1.5rem;
+            gap: 0.5rem;
+        }
+
+        .project-card.featured .project-content {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* 子项目样式 */
+    .sub-projects {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .sub-projects-title {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .sub-projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+
+    .sub-project-card {
+        background: var(--light-bg);
+        padding: 1rem;
+        border-radius: 8px;
+        border-left: 3px solid var(--secondary-color);
+        transition: all 0.3s ease;
+    }
+
+    .sub-project-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .sub-project-title {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+    }
+
+    .sub-project-desc {
+        font-size: 0.85rem;
+        color: var(--text-color);
+        opacity: 0.9;
+        margin-bottom: 1rem;
+        line-height: 1.5;
+    }
+
+    .sub-project-link {
+        display: inline-block;
+        background: var(--secondary-color);
+        color: white;
+        padding: 0.4rem 0.8rem;
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 0.8rem;
+        font-weight: 500;
+        transition: background 0.3s ease;
+    }
+
+    .sub-project-link:hover {
+        background: #e89450;
+    }
+
+    .project-actions {
+        display: flex;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+    }
+
+    .btn-project-main {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        background: var(--secondary-color);
+        color: white;
+        padding: 0.6rem 1.2rem;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background 0.3s ease;
+        border: none;
+        cursor: pointer;
+        font-size: 0.9rem;
+    }
+
+    .btn-project-main:hover {
+        background: #e89450;
+    }
+
+    .btn-project-secondary {
+        display: inline-block;
+        background: transparent;
+        color: var(--primary-color);
+        border: 2px solid var(--primary-color);
+        padding: 0.6rem 1.2rem;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+    }
+
+    .btn-project-secondary:hover {
+        background: var(--primary-color);
+        color: white;
+    }
+
+    /* 项目详情展开区 */
+    .project-detail-divider {
+        width: 100%;
+        height: 1px;
+        background: rgba(0,0,0,0.08);
+        margin: 1rem 0 0.8rem 0;
+    }
+
+    .project-detail-desc {
+        font-size: 0.9rem;
+        color: var(--text-color);
+        line-height: 1.6;
+        margin-bottom: 0.6rem;
+    }
+
+    .project-detail-responsibilities {
+        font-size: 0.85rem;
+        color: var(--text-color);
+        line-height: 1.5;
+        opacity: 0.85;
+    }
+
+    /* 加载状态 */
+    .loading {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 3rem 0;
+        font-size: 1.1rem;
+        color: var(--secondary-color);
+    }
+
+    .error {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 3rem 0;
+        font-size: 1.1rem;
+        color: #e53e3e;
+    }
+
+    /* 技能栈 */
+    .skills-section {
+        max-width: 1000px;
+        margin: 4rem auto;
+        padding: 3rem 2rem;
+        background: var(--card-bg);
+        border-radius: var(--border-radius);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .skill-item {
+        background: var(--light-bg);
+        padding: 1.5rem;
+        border-radius: 8px;
+        text-align: center;
+        border-left: 4px solid var(--secondary-color);
+        transition: all 0.3s ease;
+        opacity: 0;
+        animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    .skill-item:nth-child(1) { animation-delay: 0.1s; }
+    .skill-item:nth-child(2) { animation-delay: 0.2s; }
+    .skill-item:nth-child(3) { animation-delay: 0.3s; }
+    .skill-item:nth-child(4) { animation-delay: 0.4s; }
+    .skill-item:nth-child(5) { animation-delay: 0.5s; }
+    .skill-item:nth-child(6) { animation-delay: 0.6s; }
+
+    .skill-item:hover {
+        background: rgba(232, 240, 247, 0.5);
+        transform: translateY(-4px);
+    }
+
+    .skill-item .icon {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .skill-item h3 {
+        font-size: 1.1rem;
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+    }
+
+    .skill-level {
+        display: inline-block;
+        font-size: 0.75rem;
+        font-weight: 700;
+        padding: 0.2rem 0.7rem;
+        border-radius: 12px;
+        margin-top: 0.6rem;
+        letter-spacing: 0.5px;
+    }
+
+    .skill-level.level-proficient {
+        background: rgba(66,153,225,0.15);
+        color: #4299e1;
+    }
+
+    .skill-level.level-skilled {
+        background: rgba(72,187,120,0.15);
+        color: #48bb78;
+    }
+
+    /* 联系我 */
+    .contact-section {
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+        color: white;
+        padding: 3rem 2rem;
+        text-align: center;
+        margin-top: 4rem;
+    }
+
+    .contact-section h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .resume-downloads {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-bottom: 2rem;
+    }
+
+    .resume-link {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        padding: 0.8rem 1.5rem;
+        background: rgba(255,255,255,0.12);
+        border: 2px solid rgba(255,255,255,0.3);
+        border-radius: 6px;
+        transition: all 0.3s ease;
+        font-size: 0.95rem;
+    }
+
+    .resume-link:hover {
+        background: var(--secondary-color);
+        border-color: var(--secondary-color);
+        transform: translateY(-2px);
+    }
+
+    .contact-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+        margin-bottom: 2rem;
+    }
+
+    .contact-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        padding: 0.8rem 1.5rem;
+        border: 2px solid white;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+    }
+
+    .contact-links a:hover {
+        background: var(--secondary-color);
+        border-color: var(--secondary-color);
+    }
+
+    .contact-info {
+        font-size: 0.95rem;
+        opacity: 0.9;
+    }
+
+    /* 访客计数器 */
+    .visitor-counter {
+        position: fixed;
+        bottom: 1rem;
+        right: 1rem;
+        background: rgba(30, 58, 95, 0.9);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        backdrop-filter: blur(5px);
+    }
+
+    /* 动画 */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+        .nav-container {
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        nav ul {
+            gap: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+        }
+
+        .hero .subtitle {
+            font-size: 1rem;
+        }
+
+        .hero-actions {
+            flex-direction: column;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .about, .skills-section {
+            margin: 2rem auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .stats-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .projects-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .sub-projects-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .skills-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .contact-links {
+            gap: 1rem;
+        }
+
+        .resume-downloads {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .framework-section {
+            margin: 2rem auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .contact-links a {
+            padding: 0.6rem 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .project-actions {
+            flex-direction: column;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .stats-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .skills-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* 平滑滚动 */
+    html {
+        scroll-behavior: smooth;
+    }
+</style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="nav-logo">杨岚</a>
+            <ul>
+                <li><a onclick="scrollToSection('about')" class="nav-link" data-section="about">法学底色</a></li>
+                <li><a onclick="scrollToSection('framework')" class="nav-link" data-section="framework">思维框架</a></li>
+                <li><a onclick="scrollToSection('projects')" class="nav-link" data-section="projects">产品实践</a></li>
+                <li><a onclick="scrollToSection('skills')" class="nav-link" data-section="skills">能力证明</a></li>
+                <li><a onclick="scrollToSection('contact')" class="nav-link" data-section="contact">联系与简历</a></li>
+            </ul>
+            <button id="themeToggle" class="theme-toggle">🌙</button>
+        </div>
+    </nav>
+<!-- Hero区 -->
+<section class="hero">
+    <h1>杨岚</h1>
+    <p class="subtitle">用法学思维做产品</p>
+    <p class="tagline">规则设计 × 风险前置 × 用户同理心 → 更可信的产品方案</p>
+    <div class="hero-actions">
+        <a href="#projects" class="btn-primary">看我的产品实践</a>
+        <a href="#contact" class="btn-secondary">获取简历</a>
+    </div>
+</section>
+
+<!-- 法学底色 -->
+<section class="about" id="about">
+    <h2>法学底色</h2>
+    <p>
+        南京航空航天大学 <span class="highlight">法学专业大一学生</span>，GPA 4.3/4.5（专业前5%），修读民法、刑法、民事诉讼法等核心课程。
+    </p>
+    <p>
+        法学训练赋予我两样东西——<span class="highlight">规则设计的框架感</span>、以及<span class="highlight">从风险倒推方案的思维习惯</span>。这两样东西，在产品设计里同样管用。
+    </p>
+
+    <!-- 法院实习 -->
+    <div class="internship-block">
+        <h3>⚖️ 法律实务经历</h3>
+        <div class="internship-timeline">
+            <div class="internship-header">
+                <span class="unit">江苏省宿迁市宿城区人民法院</span>
+                <span class="dept">民二庭</span>
+                <div class="duration">2026.07.10 — 2026.08.10 · 为期1个月</div>
+            </div>
+            <ul class="internship-duties">
+                <li>梳理案件卷宗材料，逐案联系原告核实是否继续推进诉讼程序，同步记录沟通信息</li>
+                <li>将每起案件的沟通核实结果、原告意愿信息整理登记至统计表格，完成台账归档</li>
+                <li>协助法官起草、校对民事判决书，核对文书内容与卷宗事实、证据信息，完成文书基础撰写与格式调整</li>
+                <li>配合庭内完成案件材料整理、信息核对等辅助性事务</li>
+            </ul>
+            <div class="internship-outcome">
+                累计完成 <strong>200余件</strong> 案件的诉讼意愿核实与台账登记，同步配套完成对应民事裁判文书草拟与校对工作。
+            </div>
+            <div class="internship-insight">
+                这段经历让我理解了司法裁判文书的规则构造逻辑——每一份判决书本质上是一套"输入事实 → 适用规则 → 输出结论"的严谨系统。这与产品设计中"输入需求 → 定义规则 → 输出方案"是同构的思维方式。
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 思维框架 -->
+<section class="framework-section" id="framework">
+    <h2 class="section-title">我的思维框架</h2>
+    <div class="framework-steps">
+        <div class="framework-step">
+            <span class="framework-step-icon">🔍</span>
+            <h3>识别规则边界</h3>
+            <p>快速梳理业务中的法律约束、平台规范与用户权益边界，明确"能做什么、不能做什么"</p>
+            <span class="evidence">见旅伴+：个人信息保护法合规设计</span>
+        </div>
+        <div class="framework-step">
+            <span class="framework-step-icon">⚠️</span>
+            <h3>预判风险节点</h3>
+            <p>在方案设计阶段前置识别潜在风险，用"如果出问题，最坏情况是什么"倒推防护措施</p>
+            <span class="evidence">见机场安检：用户分层+智能预核验风控</span>
+        </div>
+        <div class="framework-step">
+            <span class="framework-step-icon">✅</span>
+            <h3>设计合规且好用的方案</h3>
+            <p>在规则框架内寻找最优解，让产品既安全可信、又不牺牲用户体验</p>
+            <span class="evidence">见旅伴+：紧急联系人交换流程设计</span>
+        </div>
+    </div>
+</section>
+
+<!-- 产品实践 - 动态从维格表加载 -->
+<section class="projects-section" id="projects">
+    <h2 class="section-title">产品实践（动态更新）</h2>
+    <div class="projects-grid" id="projectsGrid">
+        <div class="loading">正在从维格表加载项目数据...</div>
+    </div>
+</section>
+
+<!-- 能力证明 -->
+<section class="skills-section" id="skills">
+    <h2 class="section-title">能力证明</h2>
+
+    <!-- 精简数据统计 -->
+    <div class="stats-grid" style="margin-bottom: 2.5rem;">
+        <div class="stat-card">
+            <div class="stat-number">143<small style="font-size:1rem;">天</small></div>
+            <div class="stat-label">用户行为数据深度分析</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number" id="projectCount">0</div>
+            <div class="stat-label">个从0到1产品实践项目</div>
+        </div>
+    </div>
+
+    <div class="skills-grid">
+        <div class="skill-item">
+            <div class="icon">🎨</div>
+            <h3>产品设计</h3>
+            <p>墨刀原型、Figma、PRD撰写、需求分析、用户研究</p>
+            <span class="skill-level level-proficient">熟练</span>
+        </div>
+        <div class="skill-item">
+            <div class="icon">📊</div>
+            <h3>数据分析</h3>
+            <p>SQL、Python、数据可视化、业务洞察、MySQL/Workbench</p>
+            <span class="skill-level level-skilled">掌握</span>
+        </div>
+        <div class="skill-item">
+            <div class="icon">⚖️</div>
+            <h3>法律风控</h3>
+            <p>法律合规、风险预判、合同设计、产品风控体系构建</p>
+            <span class="skill-level level-skilled">掌握</span>
+        </div>
+        <div class="skill-item">
+            <div class="icon">💻</div>
+            <h3>工程实现</h3>
+            <p>HTML/CSS/JS、Git、Netlify部署、API对接、Vibe Coding</p>
+            <span class="skill-level level-proficient">熟练</span>
+        </div>
+    </div>
+</section>
+
+<!-- 联系与简历 -->
+<section class="contact-section" id="contact">
+    <h2>联系与简历</h2>
+    <div class="resume-downloads">
+        <a href="#" class="resume-link" onclick="downloadResume('法学岗')">📄 简历 · 法学方向</a>
+        <a href="#" class="resume-link" onclick="downloadResume('产品岗')">📄 简历 · 产品方向</a>
+        <a href="#" class="resume-link" onclick="downloadResume('法律科技/合规岗')">📄 简历 · 法律科技/合规方向</a>
+    </div>
+    <div class="contact-links">
+        <a href="mailto:2758473185@qq.com">📧 邮箱</a>
+        <a href="tel:18105248398">📱 电话</a>
+        <a href="https://github.com/nuaa-lawyer" target="_blank" rel="noopener noreferrer">💻 GitHub</a>
+    </div>
+    <div class="contact-info">
+        <p>邮箱：2758473185@qq.com | 电话：18105248398</p>
+        <p>南京航空航天大学 法学专业</p>
+    </div>
+</section>
+
+<!-- 访客计数器 -->
+<div id="visitorCounter" class="visitor-counter" style="display: none;">
+    <span>👀</span>
+    <span>第 <span id="visitCount">1</span> 位访客</span>
+</div>
+
+<script>
+    // ===== Netlify 函数配置 =====
+    const NETLIFY_FUNCTION_URL = '/.netlify/functions/get-projects';
+    const VIKA_DATASHEET_ID = 'dst7fRjLqPZMByA70N';
+
+    // 项目类型映射到图标
+    const projectIcons = {
+        '旅伴+': '🧳',
+        '民航创新赛': '✈️',
+        '公众号数据分析': '📊',
+        '个人作品集网站': '🌐',
+        '其他': '📁'
+    };
+
+    // 能力维度映射（按项目名称）
+    const abilityDimensions = {
+        '旅伴+': [
+            { key: 'dim-product', label: '产品设计' },
+            { key: 'dim-law', label: '法律风控' }
+        ],
+        '机场安检智能预核验与效率提升系统': [
+            { key: 'dim-product', label: '产品设计' },
+            { key: 'dim-law', label: '法律风控' }
+        ],
+        '143天运营数据驱动策略': [
+            { key: 'dim-data', label: '数据分析' }
+        ],
+        'Vibe Coding 个人作品展示网站': [
+            { key: 'dim-engineering', label: '工程实现' }
+        ]
+    };
+
+    // 技能标签分类映射（仅保留实际使用的 + 常用扩展）
+    const tagCategories = {
+        '产品设计': 'product-design',
+        '产品规划': 'product-design',
+        '产品思维': 'product-design',
+        '需求分析': 'product-design',
+        '用户研究': 'product-design',
+        '用户画像': 'product-design',
+        '交互设计': 'product-design',
+        '原型设计': 'prototype',
+        '墨刀原型': 'prototype',
+        'Figma': 'product-design',
+        'PRD撰写': 'prd',
+        '数据分析': 'data-analysis',
+        'SQL': 'data-analysis',
+        'Python': 'data-analysis',
+        'MySQL': 'data-analysis',
+        '数据可视化': 'data-analysis',
+        '业务洞察': 'data-analysis',
+        '法律风控': 'law-risk-control',
+        '法律合规': 'law-risk-control',
+        '合规设计': 'law-risk-control',
+        '风险预判': 'law-risk-control',
+        '系统架构': 'vibe-coding',
+        'AI工具': 'vibe-coding',
+        '前端开发': 'vibe-coding',
+        'Vibe Coding': 'vibe-coding'
+    };
+
+    // ===== 安全提取维格表链接字段（兼容超链接对象/数组/富文本/纯文本多种格式）=====
+    function extractUrl(linkField) {
+        if (!linkField) return null;
+        // 格式1: 纯文本字符串
+        if (typeof linkField === 'string') {
+            const t = linkField.trim();
+            if (t && t !== '#') return t;
+            return null;
+        }
+        // 格式2: 超链接对象 { text: "显示文本", link: "https://..." }
+        if (typeof linkField === 'object' && !Array.isArray(linkField)) {
+            if (linkField.link && typeof linkField.link === 'string') return linkField.link;
+            if (linkField.url && typeof linkField.url === 'string') return linkField.url;
+            // 极少数情况: text 字段本身就是 URL
+            if (linkField.text && typeof linkField.text === 'string' && /^https?:\/\//.test(linkField.text)) return linkField.text;
+            return null;
+        }
+        // 格式3: 数组（Vika 多链接或富文本结构），递归提取
+        if (Array.isArray(linkField)) {
+            for (const item of linkField) {
+                const url = extractUrl(item);
+                if (url) return url;
+            }
+        }
+        return null;
+    }
+
+    function extractLinkText(linkField) {
+        if (!linkField) return '查看项目详情';
+        if (typeof linkField === 'string') return '查看项目详情';
+        if (typeof linkField === 'object' && !Array.isArray(linkField)) {
+            if (linkField.text) return linkField.text;
+        }
+        return '查看项目详情';
+    }
+
+    // ===== 从维格表加载项目数据 =====
+    async function loadProjectsFromVika() {
+        const projectsGrid = document.getElementById('projectsGrid');
+        
+        try {
+            projectsGrid.innerHTML = '<div class="loading">正在从维格表获取最新项目数据...</div>';
+            
+            console.log('开始调用 Netlify 函数:', NETLIFY_FUNCTION_URL);
+            console.log('传递的 datasheetId:', VIKA_DATASHEET_ID);
+            
+            // 调用 Netlify 函数
+            const response = await fetch(NETLIFY_FUNCTION_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    datasheetId: VIKA_DATASHEET_ID
+                })
+            });
+
+            console.log('函数响应状态:', response.status, response.statusText);
+
+            if (!response.ok) {
+                console.error('HTTP 错误:', response.status, response.statusText);
+                let errorData = {};
+                try {
+                    errorData = await response.json();
+                } catch (e) {
+                    errorData = { error: '无法解析错误响应' };
+                }
+                throw new Error(`网络请求失败: ${response.status} - ${errorData.error || response.statusText}`);
+            }
+
+            const data = await response.json();
+            console.log('函数返回数据:', data);
+
+            if (data.error || !data.success) {
+                throw new Error(data.error || '数据加载失败');
+            }
+
+            console.log('获取到项目数据:', data.count || 0, '条');
+            
+            // 获取项目数并更新看板
+            document.getElementById('projectCount').textContent = data.count || 0;
+            
+            // 渲染项目卡片
+            renderProjects(data.records || []);
+            
+        } catch (error) {
+            console.error('从 Netlify 函数加载项目时出错:', error);
+            projectsGrid.innerHTML = `<div class="error">❌ 项目加载失败: ${error.message}<br><small>请检查控制台或稍后重试</small></div>`;
+        }
+    }
+
+    // ===== 渲染项目卡片 =====
+    function renderProjects(records) {
+        const projectsGrid = document.getElementById('projectsGrid');
+        
+        // 清空加载状态
+        projectsGrid.innerHTML = '';
+        
+        if (!records || records.length === 0) {
+            projectsGrid.innerHTML = '<div class="error">⚠️ 未找到项目数据</div>';
+            return;
+        }
+        
+        records.forEach((record, index) => {
+            const fields = record.fields || {};
+            const projectName = fields['项目名称'] || '未命名项目';
+            const projectType = fields['项目类型'] || '其他';
+            const description = fields['一句话简介'] || '暂无描述';
+            const detailedDesc = fields['详细描述'] || description;
+            const responsibilities = fields['核心职责与成果'] || '暂无职责描述';
+            const skillsRaw = fields['关键技能标签'] || [];
+            const projectLink = extractUrl(fields['项目链接']);
+            const projectLinkText = extractLinkText(fields['项目链接']);
+            const sortWeight = fields['排序权重'] || 0;
+            const status = fields['状态'] || '进行中';
+            const subProjectLinks = fields['子项目链接'] || '';
+            
+            // 处理技能标签
+            let skills = [];
+            if (Array.isArray(skillsRaw)) {
+                skills = skillsRaw.map(skill => {
+                    if (typeof skill === 'object' && skill.text) {
+                        return skill.text;
+                    }
+                    return String(skill);
+                });
+            } else if (typeof skillsRaw === 'string') {
+                skills = skillsRaw.split(',').map(s => s.trim());
+            }
+            
+            // 获取项目图标
+            const projectIcon = projectIcons[projectName] || projectIcons['其他'];
+            
+            // 生成技能标签HTML
+            const skillsHtml = skills.map(skill => {
+                const tagClass = tagCategories[skill] || 'tag';
+                return `<span class="tag ${tagClass}">${skill}</span>`;
+            }).join('');
+
+            // 生成能力维度标签
+            const dims = abilityDimensions[projectName] || [];
+            const abilityTagsHtml = dims.map(d =>
+                `<span class="ability-tag ${d.key}">${d.label}</span>`
+            ).join('');
+            
+            // 解析子项目链接
+            let subProjectsHtml = '';
+            if (subProjectLinks && typeof subProjectLinks === 'string') {
+                try {
+                    const subProjects = JSON.parse(subProjectLinks);
+                    if (Array.isArray(subProjects) && subProjects.length > 0) {
+                        subProjectsHtml = `
+                            <div class="sub-projects">
+                                <div class="sub-projects-title">
+                                    <span>📁</span>
+                                    <span>项目产出</span>
+                                </div>
+                                <div class="sub-projects-grid">
+                                    ${subProjects.map(subProject => `
+                                        <div class="sub-project-card">
+                                            <div class="sub-project-title">
+                                                <span>${getSubProjectIcon(subProject.type)}</span>
+                                                <span>${subProject.title || '子项目'}</span>
+                                            </div>
+                                            <p class="sub-project-desc">${subProject.description || ''}</p>
+                                            <a href="${subProject.link || '#'}" class="sub-project-link" target="_blank">${subProject.linkText || '查看详情'}</a>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        `;
+                    }
+                } catch (e) {
+                    console.log('子项目链接解析失败:', e);
+                }
+            }
+            
+            // 判断是否为特色项目
+            const isFeatured = projectName === '旅伴+';
+
+            // 创建项目卡片HTML
+            const projectCard = document.createElement('div');
+            projectCard.className = 'project-card' + (isFeatured ? ' featured' : '');
+            projectCard.style.animationDelay = `${0.1 + (index * 0.1)}s`;
+            projectCard.id = `project-${index}`;
+
+            projectCard.innerHTML = `
+                <div class="project-header">
+                    <div class="project-main-icon">${projectIcon}</div>
+                    <h3>${projectName}</h3>
+                    <p class="project-subtitle">${projectType}</p>
+                </div>
+                <div class="project-content">
+                    ${abilityTagsHtml ? `<div class="ability-tags">${abilityTagsHtml}</div>` : ''}
+                    <p class="project-description">${description}</p>
+
+                    <div class="project-tags">
+                        ${skillsHtml}
+                    </div>
+
+                    ${subProjectsHtml}
+
+                    <div class="project-actions">
+                        ${projectLink ? `<a href="${projectLink}" class="btn-project-main" target="_blank" rel="noopener noreferrer"><span>🔗</span> ${projectLinkText} <span>→</span></a>` : ''}
+                        <button class="btn-project-secondary" onclick="toggleProjectDetail('project-${index}')">📋 了解更多</button>
+                    </div>
+                    <div class="project-detail" style="display:none;">
+                        <div class="project-detail-divider"></div>
+                        <p class="project-detail-desc">${detailedDesc}</p>
+                        <p class="project-detail-responsibilities"><strong>核心职责与成果：</strong>${responsibilities}</p>
+                    </div>
+                </div>
+            `;
+            
+            projectsGrid.appendChild(projectCard);
+        });
+    }
+
+    // ===== 获取子项目图标 =====
+    function getSubProjectIcon(type) {
+        const iconMap = {
+            '原型': '🎨',
+            '策划方案': '📋',
+            'PRD': '📄',
+            '代码': '💻',
+            '设计稿': '🎨',
+            '报告': '📊',
+            '演示': '📽️',
+            '文档': '📃'
+        };
+        return iconMap[type] || '📁';
+    }
+
+    // ===== 展开/折叠项目详情 =====
+    function toggleProjectDetail(cardId) {
+        const card = document.getElementById(cardId);
+        if (!card) return;
+        const detail = card.querySelector('.project-detail');
+        const btn = card.querySelector('.btn-project-secondary');
+        if (!detail || !btn) return;
+        if (detail.style.display === 'none') {
+            detail.style.display = 'block';
+            btn.textContent = '📋 收起';
+        } else {
+            detail.style.display = 'none';
+            btn.textContent = '📋 了解更多';
+        }
+    }
+
+    // ===== 平滑滚动 =====
+    function scrollToSection(sectionId) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+
+    // ===== 导航栏高亮 =====
+    function updateNavHighlight() {
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        let currentSection = '';
+        const scrollPosition = window.scrollY + 100;
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                currentSection = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('data-section') === currentSection) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    // ===== 暗色模式切换 =====
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+        const isDarkMode = document.body.classList.contains('dark-mode');
+        localStorage.setItem('darkMode', isDarkMode);
+        document.getElementById('themeToggle').textContent = isDarkMode ? '☀️' : '🌙';
+    }
+
+    // ===== 访客计数 =====
+    function updateVisitorCount() {
+        let visitCount = localStorage.getItem('visitCount');
+        if (!visitCount) {
+            visitCount = 1;
+        } else {
+            visitCount = parseInt(visitCount) + 1;
+        }
+        localStorage.setItem('visitCount', visitCount);
+        
+        document.getElementById('visitCount').textContent = visitCount;
+        document.getElementById('visitorCounter').style.display = 'flex';
+    }
+
+    // ===== 下载简历（三份方向性PDF） =====
+    function downloadResume(direction) {
+        alert(`简历下载：${direction}（请将对应PDF简历文件上传后替换此链接）`);
+    }
+
+    // ===== 数字动画 =====
+    function animateNumbers() {
+        const visitCountEl = document.getElementById('visitCount');
+        if (visitCountEl) {
+            const finalCount = parseInt(localStorage.getItem('visitCount') || '1');
+            animateCount(visitCountEl, 0, finalCount, 1000);
+        }
+    }
+
+    function animateCount(element, start, end, duration) {
+        let startTimestamp = null;
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            const value = Math.floor(progress * (end - start) + start);
+            element.textContent = value;
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            }
+        };
+        window.requestAnimationFrame(step);
+    }
+
+    // ===== 技能等级动画 =====
+    function animateSkillLevels() {
+        const levels = document.querySelectorAll('.skill-level');
+        levels.forEach((level, i) => {
+            level.style.opacity = '0';
+            level.style.transition = 'opacity 0.4s ease-out';
+            setTimeout(() => { level.style.opacity = '1'; }, 200 + i * 100);
+        });
+    }
+
+    // ===== 页面加载时初始化 =====
+    document.addEventListener('DOMContentLoaded', () => {
+        console.log('页面加载完成，开始加载项目数据...');
+        
+        // 从维格表加载项目数据
+        loadProjectsFromVika();
+        
+        // 检查暗色模式
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+            document.getElementById('themeToggle').textContent = '☀️';
+        }
+        
+        // 绑定事件
+        document.getElementById('themeToggle').addEventListener('click', toggleDarkMode);
+        
+        // 初始化滚动监听
+        window.addEventListener('scroll', updateNavHighlight);
+        updateNavHighlight(); // 初始高亮
+        
+        // 访客计数
+        updateVisitorCount();
+        
+        // 动画
+        setTimeout(() => {
+            animateNumbers();
+            animateSkillLevels();
+        }, 500);
+    });
+</script>
+</body>
+</html>  
