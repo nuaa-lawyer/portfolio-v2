@@ -3,10 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>个人简历 - 杨岚（法务/律师助理方向）</title>
+<title>个人简历 - 杨岚（法务助理/实习律师助理方向）</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   body {
     font-family: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
     background: #e8e8e8;
@@ -14,148 +13,105 @@
     justify-content: center;
     padding: 2rem 1rem;
     color: #222;
-    line-height: 1.6;
+    line-height: 1.65;
   }
-
   .resume {
-    width: 100%;
-    max-width: 750px;
+    width: 100%; max-width: 760px;
     background: #fff;
-    padding: 2.8rem 2.5rem 2.5rem;
     box-shadow: 0 2px 20px rgba(0,0,0,0.12);
   }
+  /* 顶部蓝色条 */
+  .top-bar { height: 6px; background: #1E3A5F; }
 
   /* 头部 */
   .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    border-bottom: 3px solid #1E3A5F;
-    padding-bottom: 1.5rem;
-    margin-bottom: 1.5rem;
+    display: flex; justify-content: space-between; align-items: flex-start;
+    padding: 2rem 2.5rem 1.2rem;
   }
-
   .header-left h1 {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #1E3A5F;
-    letter-spacing: 4px;
-    margin-bottom: 0.3rem;
+    font-size: 2.2rem; font-weight: 700; color: #1E3A5F;
+    letter-spacing: 6px; margin-bottom: 0.4rem;
   }
-
-  .header-left .job-target {
-    font-size: 0.9rem;
-    color: #888;
-    margin-bottom: 0.8rem;
+  .header-left .target {
+    font-size: 0.9rem; color: #888; margin-bottom: 1rem;
   }
-
-  .contact-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.3rem 1.8rem;
-    font-size: 0.8rem;
-    color: #555;
+  .info-table { border-collapse: collapse; }
+  .info-table td {
+    font-size: 0.82rem; padding: 0.15rem 0; color: #444;
   }
-
-  .contact-row span {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.2rem;
+  .info-table td:first-child {
+    color: #888; width: 70px; white-space: nowrap;
   }
-
-  .photo-placeholder {
-    width: 90px;
-    height: 120px;
-    border: 1.5px dashed #bbb;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #bbb;
-    font-size: 0.75rem;
-    flex-shrink: 0;
-    margin-left: 2rem;
+  .info-table td:nth-child(3) { color: #888; width: 70px; padding-left: 1.5rem; }
+  .photo-box {
+    width: 95px; height: 125px; flex-shrink: 0; margin-left: 1.5rem;
   }
+  .photo-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-  /* 章节标题 */
-  .section {
-    margin-bottom: 1.2rem;
-  }
+  /* 正文 */
+  .body-content { padding: 0 2.5rem 2rem; }
 
+  /* 章节 */
+  .section { margin-bottom: 1.1rem; }
   .section-title {
-    font-size: 1rem;
-    font-weight: 700;
-    color: #1E3A5F;
-    border-left: 4px solid #F4A261;
-    padding-left: 0.6rem;
-    margin-bottom: 0.7rem;
-    letter-spacing: 1px;
+    font-size: 1rem; font-weight: 700; color: #1E3A5F;
+    border-bottom: 1.5px solid #e0e0e0; padding-bottom: 0.3rem;
+    margin-bottom: 0.65rem; letter-spacing: 1px;
+    display: flex; align-items: center; gap: 0.4rem;
+  }
+  .section-title::before {
+    content: ''; display: inline-block;
+    width: 5px; height: 5px; background: #F4A261; border-radius: 50%;
   }
 
   /* 条目 */
-  .entry {
-    margin-bottom: 0.7rem;
+  .entry { margin-bottom: 0.65rem; }
+  .entry-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    flex-wrap: wrap; margin-bottom: 0.1rem;
+  }
+  .entry-head .name { font-weight: 700; font-size: 0.9rem; }
+  .entry-head .role { font-size: 0.82rem; color: #666; font-weight: 500; margin-left: 0.5rem; }
+  .entry-head .date { font-size: 0.78rem; color: #999; white-space: nowrap; }
+
+  /* STAR 小标题 */
+  .star-label {
+    display: inline-block; font-size: 0.7rem; font-weight: 700;
+    padding: 0.1rem 0.4rem; border-radius: 2px; margin-right: 0.3rem;
+    min-width: 36px; text-align: center;
+  }
+  .star-s { background: #e8f0fb; color: #2d5a8c; }
+  .star-t { background: #fef3e4; color: #c67a2e; }
+  .star-a { background: #e8f5ed; color: #3a7d50; }
+  .star-r { background: #fce4ec; color: #b34a6e; }
+
+  /* 项目详情 */
+  .proj-desc { font-size: 0.82rem; color: #555; margin-bottom: 0.35rem; line-height: 1.55; }
+  .proj-detail { font-size: 0.82rem; color: #444; line-height: 1.55; }
+  .proj-detail li { list-style: none; margin-bottom: 0.2rem; padding-left: 0.8rem; position: relative; }
+  .proj-detail li::before {
+    content: ''; position: absolute; left: 0; top: 0.48rem;
+    width: 4px; height: 4px; background: #1E3A5F; border-radius: 50%;
   }
 
-  .entry-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    flex-wrap: wrap;
+  .highlight { color: #1E3A5F; font-weight: 700; }
+
+  /* 技能 */
+  .skill-grid {
+    display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem;
+  }
+  .skill-grid span {
+    font-size: 0.82rem; color: #444;
+  }
+  .skill-grid span::before {
+    content: '·'; margin-right: 0.4rem; color: #F4A261; font-weight: 700;
   }
 
-  .entry-title {
-    font-weight: 700;
-    font-size: 0.9rem;
-  }
-
-  .entry-sub {
-    font-size: 0.8rem;
-    color: #666;
-    font-weight: 500;
-  }
-
-  .entry-date {
-    font-size: 0.78rem;
-    color: #999;
-  }
-
-  .entry-detail {
-    margin-top: 0.25rem;
-  }
-
-  .entry-detail li {
-    font-size: 0.82rem;
-    color: #444;
-    margin-bottom: 0.15rem;
-    list-style: disc inside;
-    line-height: 1.55;
-  }
-
-  .highlight-num {
-    color: #1E3A5F;
-    font-weight: 700;
-  }
-
-  /* 技能标签 */
-  .skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .skill-tag {
-    font-size: 0.78rem;
-    background: #f0f4f8;
-    color: #1E3A5F;
-    padding: 0.15rem 0.6rem;
-    border-radius: 3px;
-    font-weight: 500;
-  }
-
-  /* 打印样式 */
   @media print {
     body { background: #fff; padding: 0; }
-    .resume { box-shadow: none; max-width: none; padding: 0.8cm 1cm; }
+    .resume { box-shadow: none; max-width: none; }
+    .header { padding: 1.5cm 1.5cm 0.8cm; }
+    .body-content { padding: 0 1.5cm 1.2cm; }
     @page { size: A4; margin: 0; }
   }
 </style>
@@ -163,98 +119,133 @@
 <body>
 <div class="resume">
 
-  <!-- 头部 -->
-  <div class="header">
-    <div class="header-left">
-      <h1>杨 岚</h1>
-      <div class="job-target">求职意向：法务助理 / 实习律师助理</div>
-      <div class="contact-row">
-        <span>📧 2758473185@qq.com</span>
-        <span>📱 18105248398</span>
-        <span>🎂 2006 年 / 女</span>
-        <span>📍 江苏南京</span>
-      </div>
-    </div>
-    <div class="photo-placeholder">证件照</div>
-  </div>
+<div class="top-bar"></div>
 
-  <!-- 教育背景 -->
-  <div class="section">
-    <div class="section-title">教育背景</div>
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-title">南京航空航天大学 · 法学专业</span>
-        <span class="entry-date">2025.09 — 2029.06（在读）</span>
-      </div>
-      <ul class="entry-detail">
-        <li>大二在读，GPA <span class="highlight-num">4.3 / 4.5</span>（专业前 5%），大一获<span class="highlight-num">学业奖学金一等奖</span></li>
-        <li>核心课程：民法、刑法、宪法、法理学、法律英语、民事诉讼法</li>
-        <li>英语 CET-4：<span class="highlight-num">639</span> 分</li>
-      </ul>
-    </div>
+<!-- 头部 -->
+<div class="header">
+  <div class="header-left">
+    <h1>杨 岚</h1>
+    <div class="target">求职意向：法务助理 / 实习律师助理</div>
+    <table class="info-table">
+      <tr><td>出生年月</td><td>2006.09</td><td>政治面貌</td><td>共青团员</td></tr>
+      <tr><td>就读院校</td><td>南京航空航天大学</td><td>专　业</td><td>法学</td></tr>
+      <tr><td>电　话</td><td>18105248398</td><td>邮　箱</td><td>2758473185@qq.com</td></tr>
+    </table>
   </div>
+  <div class="photo-box"><img src="照片.jpg" alt="证件照"></div>
+</div>
 
-  <!-- 实习经历 -->
-  <div class="section">
-    <div class="section-title">实习经历</div>
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-title">江苏省宿迁市宿城区人民法院</span>
-        <span class="entry-date">2026.07 — 2026.08</span>
-      </div>
-      <div class="entry-sub">民事审判第二庭（民二庭）· 法官助理实习生</div>
-      <ul class="entry-detail">
-        <li>梳理案件卷宗材料，逐案联系原告核实诉讼意愿，同步记录沟通信息，累积覆盖<span class="highlight-num">200 余件</span>案件</li>
-        <li>将每起案件的沟通结果、原告意愿整理登记至统计表格，完成台账归档与数据化管理</li>
-        <li>协助法官起草、校对民事判决书，核对文书内容与卷宗事实、证据信息的一致性，完成文书基础撰写与格式调整</li>
-        <li>配合庭内完成案件材料整理、信息核对等辅助性事务，熟悉民事审判流程与司法文书规范</li>
-      </ul>
+<div class="body-content">
+
+<!-- 教育背景 -->
+<div class="section">
+  <div class="section-title">教育背景</div>
+  <div class="entry">
+    <div class="entry-head">
+      <span class="name">南京航空航天大学 · 法学专业</span>
+      <span class="date">2025.09 — 2029.06</span>
+    </div>
+    <div class="proj-desc">
+      GPA <span class="highlight">4.3 / 4.5</span>（专业排名前 5%） | 大一学年获<span class="highlight">学业奖学金一等奖</span>（专业唯一大一获奖者） | 英语 CET-4：<span class="highlight">639</span> 分
+    </div>
+    <div class="proj-desc">
+      主修课程：民法总论、刑法学、宪法学、法理学、法律英语、民事诉讼法
     </div>
   </div>
+</div>
 
-  <!-- 项目经历 -->
-  <div class="section">
-    <div class="section-title">项目与竞赛经历</div>
-
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-title">"旅伴+" 社交产品法律风控方案</span>
-        <span class="entry-date">2026.02 — 2026.04</span>
-      </div>
-      <ul class="entry-detail">
-        <li>独立完成产品商业模式中的法律风险评估，主导设计《用户服务协议》《安全须知》及"紧急联系人交换"核心流程</li>
-        <li>遵循《个人信息保护法》原则，对敏感信息的收集、使用、存储生命周期进行最小化、场景化合规设计</li>
-        <li>在用户体验关键节点嵌入平台告知义务，构建产品级风控体系</li>
-      </ul>
+<!-- 实习经历 -->
+<div class="section">
+  <div class="section-title">实习经历</div>
+  <div class="entry">
+    <div class="entry-head">
+      <span class="name">江苏省宿迁市宿城区人民法院</span>
+      <span class="role">民二庭 · 法官助理实习生</span>
+      <span class="date">2026.07 — 2026.08</span>
     </div>
 
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-title">民航创新大赛 — 机场安检智能预核验方案</span>
-        <span class="entry-date">2026.01 — 2026.03</span>
-      </div>
-      <ul class="entry-detail">
-        <li>独立完成方案的合规性、可行性与风险分析，将法学合规思维融入五层技术架构</li>
-        <li>获<span class="highlight-num">民航创新实践挑战赛三等奖</span></li>
-      </ul>
+    <div class="proj-detail" style="margin-top:0.3rem;">
+      <span class="star-label star-s">S</span><strong>背景：</strong>民二庭负责商事纠纷案件审理，案件数量大、流程节点多，实习生需在短期内快速融入审判辅助工作。
+    </div>
+
+    <div class="proj-detail" style="margin-top:0.2rem;">
+      <span class="star-label star-t">T</span><strong>任务：</strong>协助法官完成案件卷宗梳理、当事人联络核实、裁判文书草拟校对等全流程审判辅助工作。
+    </div>
+
+    <div class="proj-detail" style="margin-top:0.2rem;">
+      <span class="star-label star-a">A</span><strong>行动：</strong>
+    </div>
+    <ul class="proj-detail" style="margin-left:1.5rem;">
+      <li>独立梳理在审案件卷宗材料，逐案联系原告核实诉讼推进意愿，同步记录沟通信息，建立标准化联络台账模板</li>
+      <li>将每起案件的核实结果、原告意愿、沟通备注等关键信息录入统计表格，完成<span class="highlight">200 余件案件</span>的台账归档与数据化管理</li>
+      <li>在法官指导下起草民事判决书初稿，逐项核对文书内容与卷宗事实、证据链信息的一致性，完成格式规范调整与法条援引校对</li>
+      <li>配合庭内完成案件材料整理、庭审记录辅助、当事人信息核对等日常审判辅助事务</li>
+    </ul>
+
+    <div class="proj-detail" style="margin-top:0.2rem;">
+      <span class="star-label star-r">R</span><strong>成果：</strong>累计处理 200 余件案件的诉讼意愿核实与台账登记，同步完成对应民事裁判文书的草拟与校对工作。通过这段经历，深入理解了司法裁判"事实认定→法律适用→裁判结论"的逻辑链条，积累了民事案件全流程实务经验。
+    </div>
+  </div>
+</div>
+
+<!-- 项目经历 -->
+<div class="section">
+  <div class="section-title">项目经历</div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="name">"旅伴+" 社交产品法律风控方案</span>
+      <span class="role">独立负责人</span>
+      <span class="date">2026.02 — 2026.04</span>
+    </div>
+
+    <div class="proj-detail">
+      <span class="star-label star-s">S</span><strong>背景：</strong>年轻人长途自由行中"结伴信任与安全"是核心痛点，现有社交产品缺乏有效的风险防控机制。
+    </div>
+    <div class="proj-detail">
+      <span class="star-label star-t">T</span><strong>任务：</strong>从法律合规视角，为该社交产品构建可落地的产品级风控体系。
+    </div>
+    <div class="proj-detail">
+      <span class="star-label star-a">A</span><strong>行动：</strong>
+    </div>
+    <ul class="proj-detail" style="margin-left:1.5rem;">
+      <li>主导设计《用户服务协议》与《安全须知》，在用户注册、匹配、出行三个关键节点嵌入平台告知义务，将抽象的合规要求转化为具体的产品交互流程</li>
+      <li>严格遵循《个人信息保护法》"最小必要"原则，对位置信息、紧急联系人等敏感数据的收集范围、存储方式、使用场景进行逐项合规审查与场景化设计</li>
+      <li>设计"紧急联系人交换"功能流程，在保障用户人身安全的同时通过双向确认机制降低隐私泄露风险</li>
+    </ul>
+    <div class="proj-detail">
+      <span class="star-label star-r">R</span><strong>成果：</strong>产出完整的法律风控方案文档，将法学"风险前置"思维系统性转化为产品设计方案，使产品在冷启动阶段即具备合规基础。该方案可作为同类社交产品的法律风控参考框架。
     </div>
   </div>
 
-  <!-- 技能 -->
-  <div class="section">
-    <div class="section-title">专业技能</div>
-    <div class="skill-tags">
-      <span class="skill-tag">法律文书写作</span>
-      <span class="skill-tag">卷宗整理与台账管理</span>
-      <span class="skill-tag">民事诉讼法</span>
-      <span class="skill-tag">个人信息保护法</span>
-      <span class="skill-tag">合同审核</span>
-      <span class="skill-tag">法律信息检索</span>
-      <span class="skill-tag">英语 CET-4 639</span>
-      <span class="skill-tag">Office 办公套件</span>
+  <div class="entry">
+    <div class="entry-head">
+      <span class="name">机场安检智能预核验系统 — 合规性分析</span>
+      <span class="role">独立项目负责人</span>
+      <span class="date">2026.01 — 2026.03</span>
+    </div>
+    <div class="proj-detail">
+      <span class="star-label star-r">R</span><strong>成果：</strong>独立完成方案的合规性、可行性与风险分析，将法学合规思维融入五层技术架构设计（含终端合规前置层），方案获<span class="highlight">民航创新实践挑战赛三等奖</span>。
     </div>
   </div>
+</div>
 
+<!-- 技能 -->
+<div class="section">
+  <div class="section-title">专业技能</div>
+  <div class="skill-grid">
+    <span>法律文书写作（民事判决书、起诉状、代理词）</span>
+    <span>民事案件全流程实务（送达、调解、庭审、裁判）</span>
+    <span>《民法典》《个人信息保护法》适用分析</span>
+    <span>卷宗整理与案件台账数据化管理</span>
+    <span>法律信息检索（北大法宝、裁判文书网）</span>
+    <span>合同条款审核与风险识别</span>
+    <span>英语 CET-4 639（具备法律英语基础）</span>
+    <span>Office 办公套件（Word/Excel 熟练）</span>
+  </div>
+</div>
+
+</div>
 </div>
 </body>
 </html>

@@ -6,7 +6,6 @@
 <title>个人简历 - 杨岚（产品方向）</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   body {
     font-family: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
     background: #e8e8e8;
@@ -14,137 +13,80 @@
     justify-content: center;
     padding: 2rem 1rem;
     color: #222;
-    line-height: 1.6;
+    line-height: 1.65;
   }
-
   .resume {
-    width: 100%;
-    max-width: 750px;
+    width: 100%; max-width: 760px;
     background: #fff;
-    padding: 2.8rem 2.5rem 2.5rem;
     box-shadow: 0 2px 20px rgba(0,0,0,0.12);
   }
-
+  .top-bar { height: 6px; background: #1E3A5F; }
   .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    border-bottom: 3px solid #1E3A5F;
-    padding-bottom: 1.5rem;
-    margin-bottom: 1.5rem;
+    display: flex; justify-content: space-between; align-items: flex-start;
+    padding: 2rem 2.5rem 1.2rem;
   }
-
   .header-left h1 {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #1E3A5F;
-    letter-spacing: 4px;
-    margin-bottom: 0.3rem;
+    font-size: 2.2rem; font-weight: 700; color: #1E3A5F;
+    letter-spacing: 6px; margin-bottom: 0.4rem;
   }
+  .header-left .target { font-size: 0.9rem; color: #888; margin-bottom: 1rem; }
+  .info-table { border-collapse: collapse; }
+  .info-table td { font-size: 0.82rem; padding: 0.15rem 0; color: #444; }
+  .info-table td:first-child { color: #888; width: 70px; white-space: nowrap; }
+  .info-table td:nth-child(3) { color: #888; width: 70px; padding-left: 1.5rem; }
+  .photo-box { width: 95px; height: 125px; flex-shrink: 0; margin-left: 1.5rem; }
+  .photo-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-  .header-left .job-target {
-    font-size: 0.9rem;
-    color: #888;
-    margin-bottom: 0.8rem;
-  }
-
-  .contact-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.3rem 1.8rem;
-    font-size: 0.8rem;
-    color: #555;
-  }
-
-  .photo-placeholder {
-    width: 90px;
-    height: 120px;
-    border: 1.5px dashed #bbb;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #bbb;
-    font-size: 0.75rem;
-    flex-shrink: 0;
-    margin-left: 2rem;
-  }
-
-  .section {
-    margin-bottom: 1.2rem;
-  }
-
+  .body-content { padding: 0 2.5rem 2rem; }
+  .section { margin-bottom: 1.1rem; }
   .section-title {
-    font-size: 1rem;
-    font-weight: 700;
-    color: #1E3A5F;
-    border-left: 4px solid #F4A261;
-    padding-left: 0.6rem;
-    margin-bottom: 0.7rem;
-    letter-spacing: 1px;
+    font-size: 1rem; font-weight: 700; color: #1E3A5F;
+    border-bottom: 1.5px solid #e0e0e0; padding-bottom: 0.3rem;
+    margin-bottom: 0.65rem; letter-spacing: 1px;
+    display: flex; align-items: center; gap: 0.4rem;
+  }
+  .section-title::before {
+    content: ''; display: inline-block;
+    width: 5px; height: 5px; background: #F4A261; border-radius: 50%;
   }
 
-  .entry {
-    margin-bottom: 0.7rem;
+  .entry { margin-bottom: 0.65rem; }
+  .entry-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    flex-wrap: wrap; margin-bottom: 0.1rem;
+  }
+  .entry-head .name { font-weight: 700; font-size: 0.9rem; }
+  .entry-head .role { font-size: 0.82rem; color: #666; font-weight: 500; margin-left: 0.5rem; }
+  .entry-head .date { font-size: 0.78rem; color: #999; white-space: nowrap; }
+
+  .star-label {
+    display: inline-block; font-size: 0.7rem; font-weight: 700;
+    padding: 0.1rem 0.4rem; border-radius: 2px; margin-right: 0.3rem;
+    min-width: 36px; text-align: center;
+  }
+  .star-s { background: #e8f0fb; color: #2d5a8c; }
+  .star-t { background: #fef3e4; color: #c67a2e; }
+  .star-a { background: #e8f5ed; color: #3a7d50; }
+  .star-r { background: #fce4ec; color: #b34a6e; }
+
+  .proj-desc { font-size: 0.82rem; color: #555; margin-bottom: 0.35rem; line-height: 1.55; }
+  .proj-detail { font-size: 0.82rem; color: #444; line-height: 1.55; }
+  .proj-detail li { list-style: none; margin-bottom: 0.2rem; padding-left: 0.8rem; position: relative; }
+  .proj-detail li::before {
+    content: ''; position: absolute; left: 0; top: 0.48rem;
+    width: 4px; height: 4px; background: #1E3A5F; border-radius: 50%;
   }
 
-  .entry-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    flex-wrap: wrap;
-  }
-
-  .entry-title {
-    font-weight: 700;
-    font-size: 0.9rem;
-  }
-
-  .entry-sub {
-    font-size: 0.8rem;
-    color: #666;
-    font-weight: 500;
-  }
-
-  .entry-date {
-    font-size: 0.78rem;
-    color: #999;
-  }
-
-  .entry-detail {
-    margin-top: 0.25rem;
-  }
-
-  .entry-detail li {
-    font-size: 0.82rem;
-    color: #444;
-    margin-bottom: 0.15rem;
-    list-style: disc inside;
-    line-height: 1.55;
-  }
-
-  .highlight-num {
-    color: #1E3A5F;
-    font-weight: 700;
-  }
-
-  .skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .skill-tag {
-    font-size: 0.78rem;
-    background: #f0f4f8;
-    color: #1E3A5F;
-    padding: 0.15rem 0.6rem;
-    border-radius: 3px;
-    font-weight: 500;
-  }
+  .highlight { color: #1E3A5F; font-weight: 700; }
+  .skill-grid { display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; }
+  .skill-grid span { font-size: 0.82rem; color: #444; }
+  .skill-grid span::before { content: '·'; margin-right: 0.4rem; color: #F4A261; font-weight: 700; }
 
   @media print {
     body { background: #fff; padding: 0; }
-    .resume { box-shadow: none; max-width: none; padding: 0.8cm 1cm; }
+    .resume { box-shadow: none; max-width: none; }
+    .header { padding: 1.5cm 1.5cm 0.8cm; }
+    .body-content { padding: 0 1.5cm 1.2cm; }
     @page { size: A4; margin: 0; }
   }
 </style>
@@ -152,125 +94,197 @@
 <body>
 <div class="resume">
 
-  <div class="header">
-    <div class="header-left">
-      <h1>杨 岚</h1>
-      <div class="job-target">求职意向：产品助理 / 产品实习生</div>
-      <div class="contact-row">
-        <span>📧 2758473185@qq.com</span>
-        <span>📱 18105248398</span>
-        <span>🎂 2006 年 / 女</span>
-        <span>📍 江苏南京</span>
-        <span>💻 github.com/nuaa-lawyer</span>
-      </div>
-    </div>
-    <div class="photo-placeholder">证件照</div>
+<div class="top-bar"></div>
+
+<div class="header">
+  <div class="header-left">
+    <h1>杨 岚</h1>
+    <div class="target">求职意向：产品助理 / 产品实习生</div>
+    <table class="info-table">
+      <tr><td>出生年月</td><td>2006.09</td><td>政治面貌</td><td>共青团员</td></tr>
+      <tr><td>就读院校</td><td>南京航空航天大学</td><td>专　业</td><td>法学</td></tr>
+      <tr><td>电　话</td><td>18105248398</td><td>邮　箱</td><td>2758473185@qq.com</td></tr>
+    </table>
   </div>
+  <div class="photo-box"><img src="照片.jpg" alt="证件照"></div>
+</div>
 
-  <!-- 教育背景 -->
-  <div class="section">
-    <div class="section-title">教育背景</div>
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-title">南京航空航天大学 · 法学专业</span>
-        <span class="entry-date">2025.09 — 2029.06（在读）</span>
-      </div>
-      <ul class="entry-detail">
-        <li>大二在读，GPA <span class="highlight-num">4.3 / 4.5</span>（专业前 5%），大一获学业奖学金一等奖</li>
-        <li>法学背景赋予产品设计中独有的规则意识与风险前置思维</li>
-        <li>英语 CET-4：<span class="highlight-num">639</span> 分</li>
-      </ul>
+<div class="body-content">
+
+<!-- 教育背景 -->
+<div class="section">
+  <div class="section-title">教育背景</div>
+  <div class="entry">
+    <div class="entry-head">
+      <span class="name">南京航空航天大学 · 法学专业</span>
+      <span class="date">2025.09 — 2029.06</span>
+    </div>
+    <div class="proj-desc">
+      GPA <span class="highlight">4.3 / 4.5</span>（专业前 5%）| 大一获学业奖学金一等奖 | CET-4：<span class="highlight">639</span>
+    </div>
+    <div class="proj-desc">
+      法学训练赋予产品设计中独有的规则意识与风险前置思维——在产品定义阶段即可预判合规边界与潜在风险节点。
     </div>
   </div>
+</div>
 
-  <!-- 项目经历（重点） -->
-  <div class="section">
-    <div class="section-title">产品项目经历</div>
+<!-- 产品项目经历 -->
+<div class="section">
+  <div class="section-title">产品项目经历</div>
 
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-title">"旅伴+" 社交产品 — 独立产品负责人</span>
-        <span class="entry-date">2026.02 — 2026.04</span>
-      </div>
-      <div class="entry-sub">从 0 到 1 全流程产品设计 · 墨刀高保真原型 · 19 页 PRD</div>
-      <ul class="entry-detail">
-        <li>独立完成市场与竞品分析、用户画像与场景定义，定位年轻人长途自由行"结伴信任与安全"痛点</li>
-        <li>使用墨刀独立设计<span class="highlight-num">高保真可交互原型</span>，输出包含核心交互逻辑与异常处理的<span class="highlight-num">19 页 PRD</span></li>
-        <li>主导设计"紧急联系人交换"核心流程，将法律风控思维转化为可落地的产品功能</li>
-        <li>规划清晰的版本迭代路径与商业模式，实现从需求分析到产品交付的完整闭环</li>
-      </ul>
+  <!-- 旅伴+ -->
+  <div class="entry">
+    <div class="entry-head">
+      <span class="name">"旅伴+" 社交产品</span>
+      <span class="role">独立产品负责人（从 0 到 1）</span>
+      <span class="date">2026.02 — 2026.04</span>
     </div>
 
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-title">机场安检智能预核验系统 — 独立项目负责人</span>
-        <span class="entry-date">2026.01 — 2026.03</span>
-      </div>
-      <div class="entry-sub">民航创新实践挑战赛三等奖 · 可交互网页原型已上线</div>
-      <ul class="entry-detail">
-        <li>独立完成赛道分析与方案定位，针对机场与旅客双边痛点提出"用户分层+智能预核验"方案</li>
-        <li>设计<span class="highlight-num">五层商业与合规架构</span>，定义 4 类用户分层体系与智能预核验业务流程</li>
-        <li>完成可交互网页原型开发与线上部署（HTML+CSS+JS），具备完整流程模拟能力</li>
-        <li>方案贴合智慧机场建设政策导向，获<span class="highlight-num">民航创新大赛三等奖</span></li>
-      </ul>
+    <div class="proj-detail">
+      <span class="star-label star-s">S</span><strong>背景：</strong>年轻人长途自由行市场快速增长，但"结伴信任与安全"问题长期未解决——信息不对称导致匹配效率低、缺乏信任机制导致决策成本高、隐私泄露风险使女性用户参与率低。现有旅行社交产品尚未出现兼顾用户体验与安全保障的有效方案。
     </div>
 
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-title">微信公众号用户行为数据分析</span>
-        <span class="entry-date">2025.10 — 2025.12</span>
-      </div>
-      <ul class="entry-detail">
-        <li>独立完成覆盖<span class="highlight-num">143 天</span>、3 个数据源的用户行为深度分析，SQL 构建多维分析表</li>
-        <li>发现"周一驱动"用户活跃模式与"推荐渠道"核心流量依赖，输出可直接执行的运营优化方案</li>
-      </ul>
+    <div class="proj-detail">
+      <span class="star-label star-t">T</span><strong>任务：</strong>独立完成从市场分析、用户研究、产品定位到高保真原型交付的全流程产品设计，并输出涵盖交互逻辑与异常处理的完整 PRD。
     </div>
 
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-title">个人作品集数据管理系统 — 独立开发</span>
-        <span class="entry-date">2026.04 — 至今</span>
-      </div>
-      <ul class="entry-detail">
-        <li>主导前后端分离架构设计，基于维格表 API + Netlify Serverless 构建动态内容管理系统</li>
-        <li>以产品思维主导技术落地，实现内容可视化编辑与动态同步</li>
-      </ul>
+    <div class="proj-detail">
+      <span class="star-label star-a">A</span><strong>行动：</strong>
+    </div>
+    <ul class="proj-detail" style="margin-left:1.5rem;">
+      <li><strong>市场与竞品分析：</strong>调研主流旅行社交产品（穷游、马蜂窝、小红书旅行板块），识别"信任机制缺失"为差异化切入点，完成竞品功能矩阵对比与机会分析</li>
+      <li><strong>用户画像与场景定义：</strong>基于目标用户访谈与需求归纳，定义 3 类核心用户画像（学生穷游型、结伴安全优先型、社交拓展型），梳理 5 个核心使用场景与对应痛点</li>
+      <li><strong>墨刀高保真可交互原型：</strong>在 1 日内自学墨刀并完成首个版本原型，覆盖注册认证、旅伴匹配、行程共建、紧急联系人、交易担保等 6 大核心模块，支持完整的点击交互流程演示</li>
+      <li><strong>PRD 撰写：</strong>输出 <span class="highlight">19 页</span>产品需求文档，包含功能规格说明、核心交互流程图、异常状态处理方案（网络异常/身份审核失败/行程取消等 12 种异常场景）</li>
+      <li><strong>版本规划与商业模式：</strong>制定"MVP 信任验证 → 社区冷启动 → 增值服务变现"三阶段迭代路线图，设计阶梯式会员与行程保险分佣的商业模型</li>
+    </ul>
+
+    <div class="proj-detail">
+      <span class="star-label star-r">R</span><strong>成果：</strong>从 0 到 1 产出一款具备完整产品逻辑、可交互原型与商业规划的社交产品方案。项目展示了独立完成产品全链路设计的能力，以及将法学思维（规则设计、风险前置）转化为产品功能的方法论。配套产出的 19 页 PRD 可作为产品岗求职的作品样本。
     </div>
   </div>
 
-  <!-- 实习经历 -->
-  <div class="section">
-    <div class="section-title">实习经历</div>
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-title">江苏省宿迁市宿城区人民法院 · 民二庭</span>
-        <span class="entry-date">2026.07 — 2026.08</span>
-      </div>
-      <div class="entry-sub">法官助理实习生</div>
-      <ul class="entry-detail">
-        <li>累计处理<span class="highlight-num">200 余件</span>案件的诉讼意愿核实与台账登记，协助起草校对民事判决书</li>
-        <li>这段经历锻炼了细致的信息处理能力，也加深了对规则与流程设计的理解</li>
-      </ul>
+  <!-- 机场安检 -->
+  <div class="entry">
+    <div class="entry-head">
+      <span class="name">机场安检智能预核验与效率提升系统</span>
+      <span class="role">独立项目负责人</span>
+      <span class="date">2026.01 — 2026.03</span>
+    </div>
+
+    <div class="proj-detail">
+      <span class="star-label star-s">S</span><strong>背景：</strong>机场安检普遍存在排队时间长（高峰时段平均 25-40 分钟）、流程一刀切、旅客体验差、运行效率低等痛点。民航局"智慧机场"政策明确鼓励安检流程创新。
+    </div>
+
+    <div class="proj-detail">
+      <span class="star-label star-t">T</span><strong>任务：</strong>提出一套可落地的安检智能化简化方案，并通过民航创新实践挑战赛验证方案的创新性与可行性。
+    </div>
+
+    <div class="proj-detail">
+      <span class="star-label star-a">A</span><strong>行动：</strong>
+    </div>
+    <ul class="proj-detail" style="margin-left:1.5rem;">
+      <li>独立完成机场与旅客双边痛点分析，提出"用户分层+智能预核验+全流程优化"核心解决方案</li>
+      <li>定义 <span class="highlight">4 类用户分层体系</span>（普通旅客、学生旅客、商务/常旅客、特殊旅客），针对每类用户设计差异化安检通道与预核验策略</li>
+      <li>设计<span class="highlight">五层商业与合规架构</span>（终端触达与合规前置层、商业收银与安全网关层、极速响应与画像服务层、可信数据空间计算层、数据供给层），确保安全、高效、可扩展、可变现</li>
+      <li>独立完成可交互网页原型开发与线上部署（HTML+CSS+JS），具备完整流程模拟能力</li>
+    </ul>
+
+    <div class="proj-detail">
+      <span class="star-label star-r">R</span><strong>成果：</strong>方案获<span class="highlight">民航创新实践挑战赛三等奖</span>，可交互原型已上线运行。该项目展示了行业方案设计能力、系统架构思维以及将合规要求融入技术方案的产品设计方法论。
     </div>
   </div>
 
-  <!-- 技能 -->
-  <div class="section">
-    <div class="section-title">专业技能</div>
-    <div class="skill-tags">
-      <span class="skill-tag">墨刀（高保真原型）</span>
-      <span class="skill-tag">Figma</span>
-      <span class="skill-tag">PRD 撰写</span>
-      <span class="skill-tag">需求分析</span>
-      <span class="skill-tag">用户研究</span>
-      <span class="skill-tag">SQL 数据分析</span>
-      <span class="skill-tag">Python</span>
-      <span class="skill-tag">HTML/CSS/JS</span>
-      <span class="skill-tag">Git & Netlify</span>
-      <span class="skill-tag">英语 CET-4 639</span>
+  <!-- 数据分析 -->
+  <div class="entry">
+    <div class="entry-head">
+      <span class="name">微信公众号运营数据分析与策略优化</span>
+      <span class="role">独立负责人</span>
+      <span class="date">2025.10 — 2025.12</span>
+    </div>
+
+    <div class="proj-detail">
+      <span class="star-label star-s">S</span><strong>背景：</strong>公众号运营缺乏数据支撑，内容策略全靠经验判断，阅读量波动大、增长停滞，需要建立数据驱动的运营决策机制。
+    </div>
+
+    <div class="proj-detail">
+      <span class="star-label star-t">T</span><strong>任务：</strong>通过数据分析发现用户行为规律与流量增长杠杆，输出可执行的运营优化方案。
+    </div>
+
+    <div class="proj-detail">
+      <span class="star-label star-a">A</span><strong>行动：</strong>
+    </div>
+    <ul class="proj-detail" style="margin-left:1.5rem;">
+      <li>独立整合<span class="highlight">覆盖 143 天、3 个数据源</span>的原始数据，通过数据清洗、去重、格式标准化构建可复用的分析数据表</li>
+      <li>编写系列 SQL 查询脚本，从用户周期模式、渠道贡献度、内容匹配效果三个维度进行多维度数据建模</li>
+      <li>对比 5 个月长期数据与 1 个月短期数据，识别稳定规律与波动因素</li>
+    </ul>
+
+    <div class="proj-detail">
+      <span class="star-label star-r">R</span><strong>成果：</strong>发现"周一驱动"用户活跃模式（周一占比近 30%）、"推荐"渠道为核心流量依赖（占比超 50%）、"实用干货×推荐渠道"等高转化组合。输出三项可执行建议：周一重点发布、优化主页与搜索渠道、内容定向投放。产出了包含原始数据、可复现 SQL 脚本、结构化分析报表（3 份 CSV）及完整项目文档的标准分析包。
     </div>
   </div>
 
+  <!-- 作品集网站 -->
+  <div class="entry">
+    <div class="entry-head">
+      <span class="name">个人作品集数据管理系统</span>
+      <span class="role">独立开发与产品设计</span>
+      <span class="date">2026.04 — 至今</span>
+    </div>
+
+    <div class="proj-detail">
+      <span class="star-label star-s">S</span><strong>背景：</strong>传统静态作品集维护成本高——每次更新项目需要手动修改 HTML 代码，无法快速响应新增经历或调整展示策略。
+    </div>
+
+    <div class="proj-detail">
+      <span class="star-label star-t">T</span><strong>任务：</strong>以产品思维主导技术落地，构建数据驱动的动态作品集系统，实现内容的可视化编辑与实时同步。
+    </div>
+
+    <div class="proj-detail">
+      <span class="star-label star-a">A</span><strong>行动：</strong>
+    </div>
+    <ul class="proj-detail" style="margin-left:1.5rem;">
+      <li>独立完成产品规划：定义"数据驱动、动态更新"的核心定位，选择维格表作为内容管理中台、Netlify Serverless 函数作为 API 中间层</li>
+      <li>完成前后端分离架构设计：前端响应式页面 + Netlify Functions API + 维格表数据源，实现跨域请求处理与自动化部署</li>
+      <li>以产品 owner 意识持续迭代，根据使用反馈优化信息架构与内容层级</li>
+    </ul>
+
+    <div class="proj-detail">
+      <span class="star-label star-r">R</span><strong>成果：</strong>建成可复用的个人作品集数据管理系统，实现项目信息的可视化编辑与网站内容的实时动态更新，后续新增项目无需修改代码。已稳定运行并持续迭代。
+    </div>
+  </div>
+</div>
+
+<!-- 实习经历 -->
+<div class="section">
+  <div class="section-title">实习经历</div>
+  <div class="entry">
+    <div class="entry-head">
+      <span class="name">江苏省宿迁市宿城区人民法院 · 民二庭</span>
+      <span class="date">2026.07 — 2026.08</span>
+    </div>
+    <ul class="proj-detail" style="margin-left:0;">
+      <li>累计处理 <span class="highlight">200 余件</span>案件的诉讼意愿核实与台账数据化管理，协助法官起草校对民事判决书</li>
+      <li>这段经历锻炼了大规模信息的结构化处理能力——将零散的沟通记录转化为标准化数据表格，与产品工作中"将用户反馈转化为结构化需求"的思维高度同构</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 技能 -->
+<div class="section">
+  <div class="section-title">专业技能</div>
+  <div class="skill-grid">
+    <span>产品设计：墨刀高保真可交互原型、Figma、需求分析、用户研究、市场竞品分析</span>
+    <span>PRD 撰写：功能规格说明、交互流程图、异常处理方案、版本规划（独立输出 19 页 PRD）</span>
+    <span>数据分析：SQL（MySQL/Workbench）、Python 数据处理、多维数据建模、业务洞察</span>
+    <span>工程实现：HTML / CSS / JavaScript、Git 版本控制、Netlify 部署、API 对接</span>
+    <span>AI 工具赋能：ChatGPT / DeepSeek 辅助需求分析、文案优化、逻辑梳理与效率提升</span>
+    <span>英语 CET-4 639 分</span>
+  </div>
+</div>
+
+</div>
 </div>
 </body>
 </html>
