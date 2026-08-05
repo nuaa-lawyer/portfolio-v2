@@ -254,6 +254,37 @@
       <span class="star-label star-r">R</span><strong>成果：</strong>建成可复用的个人作品集数据管理系统，实现项目信息的可视化编辑与网站内容的实时动态更新，后续新增项目无需修改代码。已稳定运行并持续迭代。
     </div>
   </div>
+
+  <!-- 法审助手 -->
+  <div class="entry">
+    <div class="entry-head">
+      <span class="name">"法审助手" — AI合规审查工具</span>
+      <span class="role">独立开发者（从 0 到 1）</span>
+      <span class="date">2026.05 — 2026.08</span>
+    </div>
+
+    <div class="proj-detail">
+      <span class="star-label star-s">S</span><strong>背景：</strong>产品合规审查高度依赖法务人工判断，效率低、不可规模化。大模型直接输出法律意见会产生"幻觉"（编造不存在的法条），无法用于真实业务场景。
+    </div>
+
+    <div class="proj-detail">
+      <span class="star-label star-t">T</span><strong>任务：</strong>从 0 到 1 开发一款 AI 驱动的合规审查工具，实现"输入功能描述 → 自动检索法规 → 生成结构化风险报告"的完整闭环。
+    </div>
+
+    <div class="proj-detail">
+      <span class="star-label star-a">A</span><strong>行动：</strong>
+    </div>
+    <ul class="proj-detail" style="margin-left:1.5rem;">
+      <li><strong>技术选型与架构设计：</strong>选用 RAG（检索增强生成）架构解决 AI "幻觉"问题——所有分析结论必须基于语义检索到的真实法条生成。用 Python 自建向量检索引擎替代 ChromaDB 等重依赖，用自实现 Agent 编排器替代 LangChain，在理解底层原理与控制复杂度之间取得平衡</li>
+      <li><strong>数据处理管线：</strong>构建法规数据 ETL 流程——Word 文档解析 → 按条款拆分 → API 向量化 → 向量索引存储，将<span class="highlight"> 15 部法规</span>转化为 <span class="highlight">2015 条</span>可检索的知识条目</li>
+      <li><strong>产品体验设计：</strong>预设<span class="highlight"> 5 个</span>典型产品场景示例降低使用门槛，支持追问交互与对话历史管理，报告以结构化 Markdown 表格呈现（风险分级/法规依据/修改建议），用户无需法律背景即可理解</li>
+      <li><strong>成本意识：</strong>全部采用免费/低价 API（DeepSeek-V3 + SiliconFlow），单次审查成本仅 <span class="highlight">¥0.02</span>，确保产品在 MVP 阶段即可持续运行</li>
+    </ul>
+
+    <div class="proj-detail">
+      <span class="star-label star-r">R</span><strong>成果：</strong>完成可演示的 AI 产品，覆盖位置隐私、生物识别、数据跨境等 5 类合规场景，单次审查全流程约 8 秒。项目在 GitHub 开源。展示了从技术选型、数据处理、架构设计到产品交互的完整产品建设能力，以及将 AI 技术落地为可用工具的工程执行力。
+    </div>
+  </div>
 </div>
 
 <!-- 实习经历 -->

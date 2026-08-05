@@ -202,6 +202,37 @@
     </div>
   </div>
 
+  <!-- 法审助手 -->
+  <div class="entry">
+    <div class="entry-head">
+      <span class="name">"法审助手" — AI驱动的产品合规审查系统</span>
+      <span class="role">独立开发者（从 0 到 1）</span>
+      <span class="date">2026.05 — 2026.08</span>
+    </div>
+
+    <div class="proj-detail">
+      <span class="star-label star-s">S</span><strong>背景：</strong>产品经理在功能设计阶段缺乏即时合规反馈，法务人工审查效率低、易遗漏关键法条。大模型直接用于法律分析会产生"法条幻觉"——编造不存在的条款。如何在 AI 效率与法律严谨性之间取得平衡，是法律科技产品的核心挑战。
+    </div>
+
+    <div class="proj-detail">
+      <span class="star-label star-t">T</span><strong>任务：</strong>独立设计并开发一款 AI 合规审查工具，输入产品功能描述后自动输出结构化合规风险报告，确保每条分析结论可追溯到真实法条原文。
+    </div>
+
+    <div class="proj-detail">
+      <span class="star-label star-a">A</span><strong>行动（RAG 架构 + 多 Agent 协作双线并行）：</strong>
+    </div>
+    <ul class="proj-detail" style="margin-left:1.5rem;">
+      <li><strong>知识库构建：</strong>将《个人信息保护法》《数据安全法》《网络安全法》等<span class="highlight">15 部核心法规</span>按条款拆分为 <span class="highlight">2015 条</span>结构化数据，通过 bge-large-zh-v1.5 模型生成 1024 维语义向量，实现余弦相似度检索——这是 RAG（检索增强生成）架构的核心，确保 LLM 只基于真实法条生成分析，杜绝"幻觉"</li>
+      <li><strong>多 Agent 协作架构：</strong>设计三个独立 AI Agent 流水线协作——分类 Agent（识别数据类型与风险领域）→ 检索 Agent（多角度语义查询 + LLM 精选 + 适用性分析）→ 报告 Agent（生成含风险等级、法规依据、修改建议的结构化报告）。选择自实现编排器而非依赖 LangChain 等重框架，深入理解 Agent 通信机制底层原理</li>
+      <li><strong>全栈工程落地：</strong>使用 Python 完成法规解析、向量索引构建、API 集成的全流程开发；搭建零依赖 Web 服务，支持追问交互与对话历史；预设<span class="highlight"> 5 个</span>典型产品场景示例（位置隐私、生物识别、未成年人、数据跨境、健康数据）</li>
+      <li><strong>成本控制：</strong>选用 DeepSeek-V3 + SiliconFlow 免费 API，单次审查全流程约 <span class="highlight">8 秒</span>，成本约 <span class="highlight">¥0.02 / 次</span>，实现学生可负担的 AI 产品</li>
+    </ul>
+
+    <div class="proj-detail">
+      <span class="star-label star-r">R</span><strong>成果：</strong>完成可演示的 AI 合规审查系统，覆盖 15 部核心法规、2015 条条款，合规分析可追溯至具体法条原文，项目已在 GitHub 开源。该项目的核心价值在于：<span class="highlight">在法学专业知识与 AI 工程技术之间建立了一座可运行的桥梁——不是纸上谈兵的法律科技概念，而是从法规数据预处理、向量检索、Agent 编排到前端交互完整落地的产品。</span>证明了法学背景的设计者能够独立驾驭 RAG、多 Agent 协作等 AI 技术栈，完成法律科技产品的端到端开发。
+    </div>
+  </div>
+
   <!-- 机场安检 -->
   <div class="entry">
     <div class="entry-head">
